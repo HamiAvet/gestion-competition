@@ -11,12 +11,12 @@ namespace Gestion_compétition
         static void Main(string[] args)
         {
             // Création d'un compétiteur de type Combattant
-            Competiteur.Combattant competiteur2 = new Competiteur.Combattant("Gérard", "Bouchard", 55, 105, "française");
+            Competiteur.Combattant competiteur1 = new Competiteur.Combattant("Gérard", "Bouchard", 55, 105, "française");
 
             // Création d'un compétiteur de type Choregraphe
-            Competiteur.Choregraphe competiteur3 = new Competiteur.Choregraphe("Sandrine", "Cendrier", 35, "hip-hop");
+            Competiteur.Choregraphe competiteur2 = new Competiteur.Choregraphe("Sandrine", "Cendrier", 35, "hip-hop");
 
-            List<Competiteur> listeCompetiteurs = new List<Competiteur> { competiteur2, competiteur3 };
+            List<Competiteur> listeCompetiteurs = new List<Competiteur> { competiteur1, competiteur2 };
 
             foreach (Competiteur competiteur in listeCompetiteurs)
             {
