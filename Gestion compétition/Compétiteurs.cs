@@ -37,7 +37,23 @@ namespace Gestion_compétition
             this.age = age;
             this.nationalite = nationalite;
         }
-        
+
+        // Méthode pour afficher les informations du compétiteur générique
+        protected string RecupInfo()
+        {
+            // Affichage des informations du compétiteur générique en fonction de la présence ou non de la nationalité
+            if (nationalite != null)
+            {
+                return ("Le compétiteur " + prenom + " " + nom + " agé(e) de " + age + " ans, de nationalité " + nationalite + ".");
+            }
+            else
+            {
+                return ("Le compétiteur " + prenom + " " + nom + " agé(e) de " + age + " ans.");
+            }
+        }
+        // Méthode abstraite pour afficher les informations spécifiques du compétiteur, elle doit être implémentée par les classes filles
+        public abstract string InfoCompetiteur();
+
         // Les classes filles de la classe Compétiteur
         public class Combattant : Competiteur
         {
@@ -53,7 +69,7 @@ namespace Gestion_compétition
             // Méthode pour afficher les informations du combattant
             public override string InfoCompetiteur()
             {
-                return (RecupInfo() + " Pesant " + poids + " kg.");
+                return (base.RecupInfo() + " Pesant " + poids + " kg.");
             }
         }
 
@@ -71,36 +87,8 @@ namespace Gestion_compétition
             // Méthode pour afficher les informations du chorégraphe
             public override string InfoCompetiteur()
             {
-                return (RecupInfo() + " Spécialisé(e) dans le style de danse " + styleDanse + ".");
+                return (base.RecupInfo() + " Spécialisé(e) dans le style de danse " + styleDanse + ".");
             }
         }
-
-        // Méthode pour définir la nationalité du compétiteur
-        public void SetNationalite(string nationalite)
-        {
-            this.nationalite = nationalite;
-        }
-
-        // Méthode pour récupérer le nom du compétiteur
-        public string getNom()
-        {
-            return nom;
-        }
-
-        // Méthode pour afficher les informations du compétiteur générique
-        protected string RecupInfo()
-        {
-            // Affichage des informations du compétiteur générique en fonction de la présence ou non de la nationalité
-            if (nationalite != null)
-            {
-                return ("Le compétiteur " + prenom + " " + nom + " agé(e) de " + age + " ans, de nationalité " + nationalite + ".");
-            }
-            else
-            {
-                return ("Le compétiteur " + prenom + " " + nom + " agé(e) de " + age + " ans.");
-            }
-        }
-
-        public abstract string InfoCompetiteur();
     }
 }
